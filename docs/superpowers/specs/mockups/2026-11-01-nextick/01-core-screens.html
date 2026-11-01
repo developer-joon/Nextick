@@ -1,0 +1,198 @@
+<h2>C 스타일로 전체 화면 흐름</h2>
+<p class="subtitle">로그인 → 홈 → 루틴 상세/수정/삭제 → 루틴 허브 → 가져오기 → 히스토리 → Watch. 화면 번호로 피드백 주세요.</p>
+
+<style>
+  .grid{display:flex;flex-wrap:wrap;gap:28px;justify-content:center}
+  .scr{text-align:center}
+  .scr .cap{margin-top:10px;font-weight:700;font-size:14px}
+  .scr .cap small{display:block;font-weight:400;color:#888;font-size:12px;margin-top:2px;max-width:250px}
+  .ph{width:250px;height:520px;border-radius:38px;border:8px solid #111;overflow:hidden;position:relative;background:#0f0f14;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;text-align:left}
+  .sb{height:26px;font-size:11px;display:flex;justify-content:space-between;padding:8px 18px 0;font-weight:600}
+  .h1{font-size:21px;font-weight:800;margin:8px 16px 12px}
+  .nav{display:flex;justify-content:space-between;align-items:center;margin:4px 14px 10px;font-size:13px;color:#8b8bff}
+  .nav b{color:#fff;font-size:14px}
+  .card{margin:0 12px 9px;border-radius:16px;padding:12px;position:relative}
+  .k{font-size:10px;opacity:.85}
+  .v{font-size:15px;font-weight:700;margin:2px 0 7px}
+  .bar{height:5px;background:rgba(255,255,255,.3);border-radius:3px;overflow:hidden}
+  .bar i{display:block;height:100%;background:#fff}
+  .dd{position:absolute;right:12px;top:12px;font-size:17px;font-weight:800}
+  .g1{background:linear-gradient(135deg,#5b8cff,#7b5cff)}
+  .g2{background:linear-gradient(135deg,#1fbf75,#0ea5a4)}
+  .g3{background:linear-gradient(135deg,#ff9f43,#ff6b6b)}
+  .g4{background:linear-gradient(135deg,#f368e0,#a55eea)}
+  .g5{background:linear-gradient(135deg,#576574,#222f3e)}
+  .tab{position:absolute;bottom:0;left:0;right:0;height:54px;background:#17171f;border-top:1px solid #26262f;display:flex;justify-content:space-around;align-items:center;font-size:10px;color:#777}
+  .tab span{text-align:center}.tab .on{color:#8b8bff}
+  .tab span i{display:block;font-style:normal;font-size:17px}
+  .fab{position:absolute;right:16px;bottom:66px;width:44px;height:44px;border-radius:22px;background:#7b5cff;display:flex;align-items:center;justify-content:center;font-size:24px}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px 22px;height:42px;border-radius:12px;font-size:13px;font-weight:700}
+  .row{display:flex;align-items:center;gap:10px;margin:0 14px;padding:10px 0;border-bottom:1px solid #22222b;font-size:12px}
+  .row .ck{width:18px;height:18px;border-radius:9px;border:2px solid #555;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px}
+  .row .ck.on{background:#1fbf75;border-color:#1fbf75}
+  .row .when{margin-left:auto;color:#888;font-size:11px;white-space:nowrap}
+  .lbl{font-size:10px;color:#888;margin:12px 16px 6px;text-transform:uppercase;letter-spacing:.5px}
+  .inp{margin:0 14px 8px;background:#1c1c25;border-radius:10px;padding:10px 12px;font-size:12px;display:flex;justify-content:space-between}
+  .inp span{color:#888}
+  .chip{display:inline-block;padding:5px 10px;border-radius:14px;background:#1c1c25;font-size:11px;margin:0 0 6px 6px}
+  .chip.on{background:#7b5cff}
+  .hc{margin:0 12px 9px;border-radius:14px;background:#1c1c25;padding:11px;display:flex;gap:10px}
+  .hc .em{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .hc .t{font-size:12px;font-weight:700}
+  .hc .m{font-size:10px;color:#888;margin-top:3px}
+  .sheet{position:absolute;left:0;right:0;bottom:0;background:#1c1c25;border-radius:22px 22px 0 0;padding:16px 0 20px}
+  .dim{position:absolute;inset:0;background:rgba(0,0,0,.55)}
+  .watch{width:170px;height:206px;border-radius:44px;border:8px solid #111;background:#000;color:#fff;margin:0 auto;padding:16px 12px;box-sizing:border-box;font-family:-apple-system,sans-serif;text-align:left}
+</style>
+
+<div class="grid">
+
+<!-- 1 Login -->
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div style="height:44px"></div>
+  <div style="text-align:center;font-size:44px">⏰</div>
+  <div style="text-align:center;font-size:24px;font-weight:800;margin-top:8px">Nextick</div>
+  <div style="text-align:center;font-size:12px;color:#999;margin:6px 0 34px">남들이 만든 루틴, 딱 맞는 때에 알려줄게요</div>
+  <div class="btn" style="background:#fff;color:#000"> Apple로 계속하기</div>
+  <div class="btn" style="background:#FEE500;color:#191919">💬 카카오로 계속하기</div>
+  <div class="btn" style="background:#03C75A;color:#fff">N 네이버로 계속하기</div>
+  <div class="btn" style="background:#fff;color:#333;border:1px solid #ddd">G Google로 계속하기</div>
+  <div style="text-align:center;font-size:9px;color:#666;margin-top:10px">계속하면 이용약관 및 개인정보처리방침에 동의합니다</div>
+</div><div class="cap">① 로그인 / 회원가입<small>소셜 로그인은 처음이면 자동 가입 (제 추측: 별도 가입 화면 없음)</small></div></div>
+
+<!-- 2 Home -->
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="h1">내 루틴</div>
+  <div class="card g1"><div class="k">✈️ 도쿄 여행 준비</div><div class="v">다음: 여권 확인</div><div class="bar"><i style="width:38%"></i></div><div class="dd">D-45</div></div>
+  <div class="card g2"><div class="k">🏠 10년 내집마련 적금</div><div class="v">14 / 120개월</div><div class="bar"><i style="width:12%"></i></div><div class="dd" style="font-size:12px;top:14px">11/25</div></div>
+  <div class="card g3"><div class="k">📖 영어 단어 하루 10개</div><div class="v">🔥 12일 연속</div><div class="bar"><i style="width:60%"></i></div></div>
+  <div class="card g4"><div class="k">💍 결혼 준비</div><div class="v">다음: 웨딩홀 투어</div><div class="bar"><i style="width:20%"></i></div><div class="dd">D-180</div></div>
+  <div class="fab">+</div>
+  <div class="tab"><span class="on"><i>◉</i>내 루틴</span><span><i>⌂</i>루틴 허브</span><span><i>◷</i>히스토리</span><span><i>◯</i>내 정보</span></div>
+</div><div class="cap">② 홈 (내 루틴)<small>여러 루틴 동시 진행. + 는 허브로 이동</small></div></div>
+
+<!-- 3 Detail -->
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="nav"><span>‹ 내 루틴</span><span>•••</span></div>
+  <div class="card g1" style="padding:16px"><div class="k">✈️ 도쿄 여행 준비</div><div class="v" style="font-size:18px">출국 12월 10일</div><div class="bar"><i style="width:38%"></i></div><div style="font-size:10px;margin-top:6px;opacity:.9">3 / 8 완료</div><div class="dd" style="font-size:22px">D-45</div></div>
+  <div class="row"><div class="ck on">✓</div><div style="color:#777;text-decoration:line-through">항공권 예약</div><div class="when">D-120</div></div>
+  <div class="row"><div class="ck on">✓</div><div style="color:#777;text-decoration:line-through">숙소 예약</div><div class="when">D-90</div></div>
+  <div class="row"><div class="ck on">✓</div><div style="color:#777;text-decoration:line-through">휴가 신청</div><div class="when">D-60</div></div>
+  <div class="row" style="background:#1c1c25;border-radius:8px;padding-left:8px;margin:0 8px"><div class="ck"></div><div><b>여권 만료일 확인</b><div style="font-size:10px;color:#ff9f43">오늘 · 오전 9시 알림</div></div><div class="when">D-45</div></div>
+  <div class="row"><div class="ck"></div><div>비자/입국 서류 확인</div><div class="when">D-30</div></div>
+  <div class="row"><div class="ck"></div><div>여행자 보험 가입</div><div class="when">D-14</div></div>
+  <div class="row"><div class="ck"></div><div>환전 · eSIM</div><div class="when">D-3</div></div>
+  <div class="row"><div class="ck"></div><div>짐 싸기</div><div class="when">D-1</div></div>
+</div><div class="cap">③ 루틴 상세<small>단계별 D-day, 체크로 완료. ••• → 수정/삭제</small></div></div>
+
+<!-- 4 Edit -->
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="nav"><span>취소</span><b>루틴 수정</b><span>저장</span></div>
+  <div class="lbl">이름</div><div class="inp">✈️ 도쿄 여행 준비</div>
+  <div class="lbl">기준 날짜 (D-day)</div><div class="inp">출국일<span>2026.12.10 ›</span></div>
+  <div class="lbl">알림 시간</div><div class="inp">기본 알림<span>오전 9:00 ›</span></div>
+  <div class="lbl">단계</div>
+  <div class="inp">≡ 여권 만료일 확인<span>D-45 ⊖</span></div>
+  <div class="inp">≡ 비자/입국 서류 확인<span>D-30 ⊖</span></div>
+  <div class="inp">≡ 여행자 보험 가입<span>D-14 ⊖</span></div>
+  <div class="inp" style="color:#8b8bff;justify-content:flex-start">＋ 단계 추가</div>
+  <div style="text-align:center;color:#ff6b6b;font-size:13px;margin-top:14px">루틴 삭제</div>
+</div><div class="cap">④ 루틴 수정<small>날짜·알림시간 변경, 단계 추가/삭제/순서 변경</small></div></div>
+
+<!-- 5 Delete -->
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="nav"><span>‹ 내 루틴</span><span>•••</span></div>
+  <div class="card g1" style="padding:16px"><div class="k">✈️ 도쿄 여행 준비</div><div class="v" style="font-size:18px">출국 12월 10일</div><div class="bar"><i style="width:38%"></i></div><div class="dd" style="font-size:22px">D-45</div></div>
+  <div class="dim"></div>
+  <div class="sheet">
+    <div style="text-align:center;font-size:30px">🗑️</div>
+    <div style="text-align:center;font-weight:800;font-size:15px;margin:8px 0 4px">루틴을 삭제할까요?</div>
+    <div style="text-align:center;font-size:11px;color:#999;margin:0 24px 14px">남은 알림 5개가 모두 취소돼요.<br>완료한 기록은 히스토리에 남아요.</div>
+    <div class="btn" style="background:#ff6b6b;color:#fff">삭제</div>
+    <div class="btn" style="background:#2a2a35;color:#fff">취소</div>
+  </div>
+</div><div class="cap">⑤ 루틴 삭제<small>확인 시트. (제 추측: 기록은 히스토리에 남김)</small></div></div>
+
+<!-- 6 Hub -->
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="h1" style="margin-bottom:8px">루틴 허브</div>
+  <div class="inp" style="margin-bottom:10px"><span>🔍 여행, 적금, 이사, 영어…</span></div>
+  <div style="margin:0 10px 6px;white-space:nowrap;overflow:hidden"><span class="chip on">인기</span><span class="chip">✈️ 여행</span><span class="chip">💪 건강</span><span class="chip">💰 돈</span><span class="chip">📖 공부</span></div><div style="text-align:right;margin:-2px 14px 6px;font-size:11px;color:#8b8bff">전체 카테고리 ›</div>
+  <div class="hc"><div class="em g1">✈️</div><div><div class="t">해외여행 준비 체크리스트</div><div class="m">8단계 · 출국일 기준 · ⬇ 1.2k · ♥ 340</div><div class="m">by Nextick 공식</div></div></div>
+  <div class="hc"><div class="em g2">🏠</div><div><div class="t">10년 내집마련 적금</div><div class="m">120회 · 매월 반복 · ⬇ 860</div><div class="m">by 짠테크왕</div></div></div>
+  <div class="hc"><div class="em g3">📖</div><div><div class="t">토익 필수 단어 30일</div><div class="m">30일 · 매일 · ⬇ 2.4k</div><div class="m">by Nextick 공식</div></div></div>
+  <div class="hc"><div class="em g4">📦</div><div><div class="t">이사 D-30 체크리스트</div><div class="m">12단계 · 이사일 기준 · ⬇ 410</div><div class="m">by 이사고수</div></div></div>
+  <div class="fab">✎</div>
+  <div class="tab"><span><i>◉</i>내 루틴</span><span class="on"><i>⌂</i>루틴 허브</span><span><i>◷</i>히스토리</span><span><i>◯</i>내 정보</span></div>
+</div><div class="cap">⑥ 루틴 허브<small>검색·카테고리·인기순. 사용자들이 올린 루틴 + 공식 예시</small></div></div>
+
+<!-- 7 Hub detail / import -->
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="nav"><span>‹ 허브</span><span>♡ 공유</span></div>
+  <div class="card g1" style="padding:14px"><div class="k">by Nextick 공식 · ⬇ 1.2k</div><div class="v" style="font-size:16px">해외여행 준비 체크리스트</div><div style="font-size:10px;opacity:.9">출국일만 넣으면 단계별로 알려드려요</div></div>
+  <div class="row"><div>항공권 예약</div><div class="when">D-120</div></div>
+  <div class="row"><div>숙소 예약</div><div class="when">D-90</div></div>
+  <div class="row"><div>여권 만료일 확인</div><div class="when">D-45</div></div>
+  <div class="row"><div>비자/입국 서류 확인</div><div class="when">D-30</div></div>
+  <div class="row" style="color:#666"><div>+ 4단계 더보기</div></div>
+  <div class="dim" style="top:300px;background:none"></div>
+  <div class="sheet">
+    <div style="font-weight:800;font-size:14px;margin:0 16px 10px">내 루틴에 추가</div>
+    <div class="inp">출국일<span style="color:#fff">2026.12.10 ›</span></div>
+    <div class="inp">알림 시간<span style="color:#fff">오전 9:00 ›</span></div>
+    <div class="btn" style="background:#7b5cff;color:#fff">루틴 시작하기</div>
+  </div>
+</div><div class="cap">⑦ 허브 루틴 상세 → 가져오기<small>날짜만 넣으면 시작. 핵심 흐름</small></div></div>
+
+<!-- 8 Share -->
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="nav"><span>취소</span><b>허브에 공유</b><span>올리기</span></div>
+  <div class="lbl">루틴</div><div class="inp">✈️ 도쿄 여행 준비<span>8단계</span></div>
+  <div class="lbl">제목</div><div class="inp">일본 여행 준비 (무비자 기준)</div>
+  <div class="lbl">설명</div><div class="inp" style="height:50px;align-items:flex-start"><span>일본 무비자 여행 기준으로 정리했어요…</span></div>
+  <div class="lbl">카테고리</div><div class="inp">✈️ 여행<span>›</span></div>
+  <div style="font-size:10px;color:#888;margin:14px 16px">내 날짜·체크 기록은 공유되지 않고, 단계와 D-day 간격만 올라가요.</div>
+</div><div class="cap">⑧ 허브에 공유하기<small>내 루틴을 템플릿으로 올리기 (제 추측: 상세 ••• 메뉴에서)</small></div></div>
+
+<!-- 9 History -->
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="h1">히스토리</div>
+  <div style="display:flex;gap:8px;margin:0 12px 12px">
+    <div style="flex:1;background:#1c1c25;border-radius:12px;padding:10px"><div style="font-size:10px;color:#888">끝낸 루틴</div><div style="font-size:20px;font-weight:800">7</div></div>
+    <div style="flex:1;background:#1c1c25;border-radius:12px;padding:10px"><div style="font-size:10px;color:#888">평균 달성률</div><div style="font-size:20px;font-weight:800">86%</div></div>
+  </div>
+  <div class="lbl">2026</div>
+  <div class="hc"><div class="em g1">✈️</div><div style="flex:1"><div class="t">오사카 여행 준비</div><div class="m">2026.08.02 종료 · 8/8 완료</div></div><div style="font-size:16px">🏆</div></div>
+  <div class="hc"><div class="em g3">📖</div><div style="flex:1"><div class="t">토익 단어 30일</div><div class="m">2026.06.30 종료 · 26/30 완료</div></div><div style="font-size:12px;color:#ff9f43">87%</div></div>
+  <div class="hc"><div class="em g5">📦</div><div style="flex:1"><div class="t">이사 D-30</div><div class="m">2026.03.15 종료 · 9/12 완료</div></div><div style="font-size:12px;color:#ff9f43">75%</div></div>
+  <div class="lbl">2025</div>
+  <div class="hc"><div class="em g4">💍</div><div style="flex:1"><div class="t">상견례 준비</div><div class="m">2025.11.20 종료 · 6/6 완료</div></div><div style="font-size:16px">🏆</div></div>
+  <div class="tab"><span><i>◉</i>내 루틴</span><span><i>⌂</i>루틴 허브</span><span class="on"><i>◷</i>히스토리</span><span><i>◯</i>내 정보</span></div>
+</div><div class="cap">⑨ 루틴 히스토리<small>D-day 지나거나 다 끝낸 루틴이 이리로. 탭하면 "다시 하기"</small></div></div>
+
+<!-- 10 Watch -->
+<div class="scr" style="width:250px">
+  <div class="watch">
+    <div style="font-size:10px;color:#7b5cff;font-weight:700">✈️ 도쿄 여행 · D-45</div>
+    <div style="font-size:15px;font-weight:700;margin:6px 0 14px">여권 만료일 확인할 시간이에요</div>
+    <div style="background:#1fbf75;border-radius:16px;text-align:center;padding:8px;font-size:13px;font-weight:700;margin-bottom:6px">✓ 완료</div>
+    <div style="background:#26262f;border-radius:16px;text-align:center;padding:8px;font-size:13px">내일 다시</div>
+  </div>
+  <div class="watch" style="margin-top:16px;height:190px">
+    <div style="font-size:12px;font-weight:800;margin-bottom:8px">오늘</div>
+    <div style="background:linear-gradient(135deg,#5b8cff,#7b5cff);border-radius:12px;padding:8px;font-size:11px;margin-bottom:6px">○ 여권 확인 <span style="float:right">D-45</span></div>
+    <div style="background:linear-gradient(135deg,#ff9f43,#ff6b6b);border-radius:12px;padding:8px;font-size:11px">○ 단어 10개 <span style="float:right">🔥12</span></div>
+  </div>
+  <div class="cap">⑩ Apple Watch<small>알림에서 바로 완료/미루기 + 오늘 할 일 목록</small></div>
+</div>
+
+</div>
