@@ -1,0 +1,13 @@
+{"type":"server-started","port":59191,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:59191/?key=f3fde9dc04038318d2532a2114dd6c7b0e706ef33f42247c4a9993765ce0ea4a","screen_dir":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content","state_dir":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/state","idle_timeout_ms":14400000}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/community-screens.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/routine-types-and-publish.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/workflow-screens.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/all-screens-final.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/all-screens-final-v2.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/all-screens-final-v3.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/all-screens-final-v4.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/all-screens-final-v5.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/all-screens-final-v6.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/all-screens-final-v7.html"}
+{"type":"screen-added","file":"/Users/joonwookim/orca/workspaces/Nextick/taimen/.superpowers/brainstorm/89183-1793502268/content/all-screens-final-v8.html"}
+{"type":"server-stopped","reason":"owner process exited"}

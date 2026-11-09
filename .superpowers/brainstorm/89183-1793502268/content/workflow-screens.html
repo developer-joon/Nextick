@@ -1,0 +1,53 @@
+<h2>워크플로우: 공식 데이터에서 값만 뽑아 쓰기</h2>
+<p class="subtitle">데이터 고르기 → 값 뽑기 → 알림에 쓰기. 예시 데이터와 숫자는 설명용이에요.</p>
+
+<style>
+  .grid{display:flex;flex-wrap:wrap;gap:28px;justify-content:center}
+  .scr{text-align:center}
+  .scr .cap{margin-top:10px;font-weight:700;font-size:14px}
+  .scr .cap small{display:block;font-weight:400;color:#888;font-size:12px;margin-top:2px;max-width:250px}
+  .ph{width:250px;height:520px;border-radius:38px;border:8px solid #111;overflow:hidden;position:relative;background:#0f0f14;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;text-align:left}
+  .sb{height:26px;font-size:11px;display:flex;justify-content:space-between;padding:8px 18px 0;font-weight:600}
+  .nav{display:flex;justify-content:space-between;align-items:center;margin:4px 14px 8px;font-size:13px;color:#8b8bff}
+  .nav b{color:#fff;font-size:14px}
+  .step{font-size:10px;color:#8b8bff;font-weight:700;margin:10px 16px 5px}
+  .inp{margin:0 14px 7px;background:#1c1c25;border-radius:10px;padding:9px 11px;font-size:12px;display:flex;justify-content:space-between}
+  .inp span{color:#888}
+  .json{margin:0 14px 7px;background:#1c1c25;border-radius:10px;padding:9px 11px;font:11px/1.8 Menlo,monospace;color:#aaa}
+  .pick{background:#7b5cff;color:#fff;border-radius:6px;padding:1px 5px}
+  .msg{margin:0 14px 7px;background:#1c1c25;border-radius:10px;padding:9px 11px;font-size:12px;line-height:1.5}
+  .tok{color:#ffb86b;font-weight:700}
+  .prev{margin:10px 14px;background:rgba(255,255,255,.12);border-radius:14px;padding:10px;font-size:11px;line-height:1.4}
+  .card{margin:0 12px 10px;border-radius:16px;padding:14px;background:linear-gradient(135deg,#1fbf75,#0ea5a4)}
+  .big{font-size:26px;font-weight:800;margin:4px 0}
+  .row{display:flex;justify-content:space-between;margin:0 16px;padding:10px 0;border-bottom:1px solid #22222b;font-size:12px}
+  .row span{color:#888}
+  .btn{display:flex;align-items:center;justify-content:center;margin:12px 14px;height:40px;border-radius:12px;font-size:13px;font-weight:700;background:#1fbf75}
+</style>
+
+<div class="grid">
+
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="nav"><span>취소</span><b>워크플로우</b><span>저장</span></div>
+  <div class="step">1. 공식 데이터 고르기</div>
+  <div class="inp">💱 환율<span>USD/KRW ›</span></div>
+  <div class="step">2. 쓸 값 누르기</div>
+  <div class="json">{<br>&nbsp;"date": "2026-11-01",<br>&nbsp;"rate": <b class="pick">1,380.5</b>,<br>&nbsp;"change": <b class="pick">-4.2</b><br>}</div>
+  <div class="step">3. 알림에 넣기</div>
+  <div class="msg">오늘 환율은 <span class="tok">{{환율}}</span>원,<br>전날보다 <span class="tok">{{변동}}</span>원이에요.</div>
+  <div class="prev"><b>미리보기</b><br>오늘 환율은 1,380.5원, 전날보다 -4.2원이에요.</div>
+</div><div class="cap">⑳ 워크플로우 설정<small>코드 없이 값을 눌러 고르고, 문구에 넣어요</small></div></div>
+
+<div class="scr"><div class="ph">
+  <div class="sb"><span>9:41</span><span>●●●</span></div>
+  <div class="nav"><span>‹ 뒤로</span><b>알림 상세</b><span>&nbsp;</span></div>
+  <div class="card"><div style="font-size:10px;opacity:.85">💰 달러 환전 · D-3</div><div class="big">1,380.5원</div><div style="font-size:11px">전날보다 -4.2원</div></div>
+  <div class="row"><span>기준일</span>2026.11.01</div>
+  <div class="row"><span>보낸 시각</span>오전 9:00</div>
+  <div class="row"><span>출처</span>공식 환율 데이터</div>
+  <div class="btn">✓ 환전했어요</div>
+  <div style="font-size:10px;color:#888;margin:0 16px;line-height:1.5">알림이 나갈 때의 값이 기록돼서, 나중에 다시 봐도 그때 값이 보여요.</div>
+</div><div class="cap">㉑ 알림 상세<small>알림을 누르면 열려요. 긴 내용은 여기에 넣어요</small></div></div>
+
+</div>
